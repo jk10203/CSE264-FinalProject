@@ -3,6 +3,7 @@ const gameboard = document.getElementById('game-board');
 const instructiontxt = document.getElementById('instruction-text');
 const logo = document.getElementById('logo');
 const score = document.getElementById('score');
+const highScoretxt = document.getElementById('high_score');
 //if you go into html doument, and you get element by ID
 
 //define game variables
@@ -10,6 +11,7 @@ const gridSize = 20;
 let snake = [{x:10, y:10}]//arrayw ith object inside (positions within game map)
 //snake starts at 10,10!
 let food = genRandFood();
+let highScore = 0;
 let direction = 'right';
 let gameInterval;
 let gameSpeedDelay = 200;
@@ -20,6 +22,7 @@ function draw(){
     gameboard.innerHTML = ''; //each time we draw, this board resets
     drawSnake();
     drawFood();
+    updateScore();
 }
 //drawing snake -- using array of objects inside of it
 function drawSnake(){
@@ -49,9 +52,11 @@ draw();
 
 //drawwing food
 function drawFood(){
-    const foodEl = createGameEl('div', 'food');
-    setPosition(foodEl, food);
-    gameboard.appendChild(foodEl);
+    if (gameStart){ //drawing only if game start
+        const foodEl = createGameEl('div', 'food');
+        setPosition(foodEl, food);
+        gameboard.appendChild(foodEl);
+    }
 }
 //generating random food
 function genRandFood(){
@@ -156,6 +161,8 @@ function checkBumps(){
     }
 }
 function resetGame(){
+    updateHighScore();
+    stopGame();
     snake = [{x:10, y:10}];
     food = genRandFood();
     direction = 'right';
@@ -165,7 +172,22 @@ function resetGame(){
 
 function updateScore(){
     const currScore = snake.length - 1;
-    score.textContent = currentScore.toString().padStart(3,'0'); // make triple digit number
+    score.textContent = currScore.toString().padStart(3,'0'); // make triple digit number
+}
+function stopGame(){
+    clearInterval(gameInterval);
+    gameStart = false;
+    instructiontxt.style.display = 'block';
+    logo.style.display = 'block';
+}
+function updateHighScore(){
+    const currScore = snake.length - 1;
+    if(currScore>highScore){
+        highScore = currScore;
+        highScoretxt.textContent = highScore.toString().padStart(3,'0');
+    }
+    highScoretxt.style.display = 'block';
+
 }
 //test moving
 // setInterval(()=>{
