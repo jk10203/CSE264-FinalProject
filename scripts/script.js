@@ -6,6 +6,8 @@ const score = document.getElementById('score');
 const highScoretxt = document.getElementById('high_score');
 //if you go into html doument, and you get element by ID
 
+
+
 //define game variables
 const gridSize = 20;
 let snake = [{x:10, y:10}]//arrayw ith object inside (positions within game map)
@@ -17,6 +19,12 @@ let gameInterval;
 let gameSpeedDelay = 200;
 let gameStart = false;
 
+let currentTheme = 'earth'; // Default theme
+
+document.addEventListener('DOMContentLoaded', () => {
+    changeTheme(currentTheme); // Set the initial theme
+});
+
 //first DRAW MAP BEFORE GAME -- game map, snake, food
 function draw(){
     gameboard.innerHTML = ''; //each time we draw, this board resets
@@ -27,7 +35,7 @@ function draw(){
 //drawing snake -- using array of objects inside of it
 function drawSnake(){
     snake.forEach((segmentObj) =>{//running code on every single element
-        const snakeEl = createGameEl('div','snake');
+        const snakeEl = createGameEl('div',`snake ${currentTheme}`);
         setPosition(snakeEl, segmentObj);
         gameboard.appendChild(snakeEl);
     }); //for each children in array
@@ -53,7 +61,7 @@ draw();
 //drawwing food
 function drawFood(){
     if (gameStart){ //drawing only if game start
-        const foodEl = createGameEl('div', 'food');
+        const foodEl = createGameEl('div', `food ${currentTheme}`);
         setPosition(foodEl, food);
         gameboard.appendChild(foodEl);
     }
@@ -170,6 +178,7 @@ function resetGame(){
     gameSpeedDelay = 200;
     document.getElementById('logo-corner').style.display = 'none';  //hide the logo
     updateScore();
+    showGameOverScreen();
 }
 
 function updateScore(){
@@ -186,15 +195,21 @@ function updateHighScore(){
     const currScore = snake.length - 1;
     if(currScore>highScore){
         highScore = currScore;
-        highScoretxt.textContent = highScore.toString().padStart(3,'0');
+        highScoretxt.textContent = "hs: "+ highScore.toString().padStart(3,'0');
     }
     highScoretxt.style.display = 'block';
 
+}
+function showGameOverScreen() {
+    const modal = document.getElementById('instruction-text');
+    modal.innerHTML = `<h1>Game Over!</h1><p>Press Space to Try Again. Try to collect all the hats!</p>`; // Update the modal's content
+    modal.style.display = 'flex';  // Make the modal visible
 }
 
 //--------------------------THEMES ----------------------------------
 
 function changeTheme(theme) {
+    currentTheme = theme;
     const themeDescriptions = {
         earth: "⊹ YOU ARE @ EARTH ⊹",
         venus: "⊹ YOU ARE @ VENUS ⊹",
@@ -206,14 +221,29 @@ function changeTheme(theme) {
     document.body.classList.add(theme);
     gameboard.classList.remove('earth', 'venus','neptune');
     gameboard.classList.add(theme);
-
+    //UPDATING GAME BORDER COLORS
     const borders = document.querySelectorAll('.game-border-one, .game-border-two, .game-border-three');
     borders.forEach(border => {
         border.classList.remove('earth', 'venus', 'neptune');
         border.classList.add(theme);
     });
+    //updating PLANET LOCATION
     const descriptionElement = document.getElementById('theme-description');
     descriptionElement.textContent = themeDescriptions[theme];
+
+    //updating SNAKE COLOR AND FOOD COLOR
+    const snakes = document.querySelectorAll('.snake');
+    const foods = document.querySelectorAll('.food');
+    
+    // Clear existing theme classes
+    snakes.forEach(snake => {
+        snake.classList.remove('earth', 'venus', 'neptune');
+        snake.classList.add(theme);
+    });
+    foods.forEach(food => {
+        food.classList.remove('earth', 'venus', 'neptune');
+        food.classList.add(theme);
+    });
 
     const image1 = document.getElementById('theme-image-1');
     const image2 = document.getElementById('theme-image-2');
@@ -326,9 +356,6 @@ document.getElementById('earth-icon').addEventListener('click', () => changeThem
 document.getElementById('venus-icon').addEventListener('click', () => changeTheme('venus'));
 document.getElementById('neptune-icon').addEventListener('click', () => changeTheme('neptune'));
 
-document.addEventListener('DOMContentLoaded', function() {
-    changeTheme('earth');
-});
 //test moving
 // setInterval(()=>{
 //     move(); //move first

@@ -43,7 +43,7 @@ body, .snake{
 #instruction-text{
     position:absolute; /**freezes its position */
     top:65%;
-    font-size: 12pt;
+    font-size: 8pt;
     color:#333;
     width:300px;
     text-align:center;
@@ -59,7 +59,7 @@ body, .snake{
     color: #d8ddca;
 }
 #score,#high_score{
-    font-size:30px;
+    font-size:25px;
     font-weight:bolder;
     margin:10px 0;
 }
@@ -72,7 +72,6 @@ body, .snake{
 }
 .food{
     background-color: #dedede;
-    border:#999 5px solid;
 }
 #logo{
     position:absolute;
@@ -93,7 +92,7 @@ body, .snake{
 #theme-description{
     position:absolute;
     font-size: 10pt;
-    margin-top: -270px;
+    margin-top: -285px;
     margin-left:400px;
     animation: blinkColor 1s linear infinite;
 }
@@ -477,6 +476,22 @@ body.neptune {
         opacity: 1; /*image is visible */
     }
 }
+
+/*----------------SNAKE DYANMIC -----------------*/
+.snake.earth { background-color: green; }
+.snake.venus { background-color: red; }
+.snake.neptune { background-color: blue; }
+
+.food.earth, .food.venus, .food.neptune {
+    background-image: url("./images/cowboy.png"); /* Correct syntax for background-image */
+    background-size: cover; /* Ensure the image covers the entire element */
+    background-position: center; /* Center the background image within the element */
+    display:block;
+    max-width: 100%;
+}
+/* .food.earth { background-color: brown; border: #16DB57 5px solid; }
+.food.venus { background-color: orange; border: #DB70A7 5px solid;  }
+.food.neptune { background-color: lightblue;  border: #999 5px solid; } */
 
 
 /*LOGO appear/disappear */
