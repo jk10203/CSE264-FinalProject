@@ -394,6 +394,14 @@ body.neptune {
     left: 990px;
     animation:blinkImage 1s linear infinite;
 }
+.venus-position-11 { /*sparkle*/
+    display: none;
+    position:absolute;
+    max-width: 7%;
+    top: 610px;
+    left: 1230px;
+    animation:MoveUpDown 1s linear infinite;
+}
 
 .neptune-position-1 { /*wind*/
     display: none;

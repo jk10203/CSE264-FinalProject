@@ -19,11 +19,19 @@ let gameInterval;
 let gameSpeedDelay = 200;
 let gameStart = false;
 
-let currentTheme = 'earth'; // Default theme
+let currentTheme = 'earth'; //default theme
 
 document.addEventListener('DOMContentLoaded', () => {
     changeTheme(currentTheme); // Set the initial theme
 });
+//changing music volume
+document.addEventListener('DOMContentLoaded', function() {
+    var bgMusic = document.getElementById('bgmusic');
+    bgMusic.loop = true; //kooping the background music
+    bgMusic.volume = 0.25; //set volume to 25% of the maximum volume
+    bgmusic.play();
+});
+
 
 //first DRAW MAP BEFORE GAME -- game map, snake, food
 function draw(){
@@ -316,7 +324,7 @@ function changeTheme(theme) {
             image8.src = '../styles/images/venus/fire-ball.png';
             image9.src = '../styles/images/venus/dragon1.png';
             image10.src = '../styles/images/crosshair.png';
-            image11.src = '';
+            image11.src = '../styles/images/venus/bootfire.png';
             image1.classList.add('venus-position-1');
             image2.classList.add('venus-position-2');
             image3.classList.add('venus-position-3');
@@ -327,6 +335,7 @@ function changeTheme(theme) {
             image8.classList.add('venus-position-8');
             image9.classList.add('venus-position-9');
             image10.classList.add('venus-position-10');
+            image11.classList.add('venus-position-11');
             break;
         case 'neptune':
             image1.src = '../styles/images/neptune/cloud-wind-1.png';
