@@ -7,16 +7,29 @@
         <link rel="stylesheet" href="./styles/style.css">
         <script src="./scripts/script.js" defer></script> <!--defer tells it it will run AFTER everything in html loads -- can be put in head-->
     </head>
-    <body>
+    <body class = "earth">
+        <div class = "themes">
+            <img id="logo-corner" src="./styles/images/SnakeGame.png" alt="snake-logo-corner"/> 
+            <h1 id="planet-h1"> PLANETS: </h1>
+            <p id="planet-text">Click on a planet to EXPLORE!!</p>
+            <img src="./styles/images/earth/EarthIcon.png" id="earth-icon" alt="Earth Theme">
+            <img src="./styles/images/venus/VenusIcon.png" id="venus-icon" alt="Venus Theme">
+            <img src="./styles/images/neptune/NeptuneIcon.png" id="neptune-icon" alt="Neptune Theme">
+            <img id="theme-image-one" src="" alt="Theme Specific Image" style="display: none;">
+            <img id="theme-image-two" src="" alt="Theme Specific Image" style="display: none;">
+            <img id="theme-image-three" src="" alt="Theme Specific Image" style="display: none;">
+            <img id="theme-image-four" src="" alt="Theme Specific Image" style="display: none;">
+            <img id="theme-image-five" src="" alt="Theme Specific Image" style="display: none;">
+
+        </div>
         <div>
             <div class="scores">
                 <h1 id="score">000</h1>
                 <h1 id="high_score">000</h1>
             </div>
-
-            <div class = "game-border-1">
-                <div class="game-border-2">
-                    <div class="game-border-3">
+            <div class = "game-border-one earth">
+                <div class="game-border-two earth">
+                    <div class="game-border-three earth">
                         <div id = "game-board">
 
                         </div>
@@ -25,6 +38,6 @@
             </div>
         </div>
         <h1 id="instruction-text"> Press spacebar to start the game! </h1>
-        <img id="logo" src="./styles/snakelogo.png" alt="snake-logo"/>    
+        <img id="logo" src="./styles/images/SnakeGame.png" alt="snake-logo"/>    
     </body>
 </html>

@@ -24,17 +24,17 @@ body, .snake{
     grid-template-rows:repeat(20,20px);
     margin:5px;
 }
-.game-border-1{
+.game-border-one{
     border:#595f43 solid 10px;
     border-radius:30px;
     box-shadow:inset 0 0 0 10px #595f43; /*box shadow goes insward -- gets rid of gap*/
 }
-.game-border-2{
+.game-border-two{
     border:#ABB78A solid 8px;
     border-radius:26px;
     box-shadow:inset 0 0 0 10px #ABB78A; /*box shadow goes insward -- gets rid of gap*/
 }
-.game-border-3{
+.game-border-three{
     border:#8b966c solid 30px;
     border-radius:20px;
     box-shadow:inset 0 0 0 5px #8b966c; /*box shadow goes insward -- gets rid of gap*/
@@ -42,8 +42,8 @@ body, .snake{
 
 #instruction-text{
     position:absolute; /**freezes its position */
-    top:60%;
-    font-size: 15pt;
+    top:65%;
+    font-size: 12pt;
     color:#333;
     width:300px;
     text-align:center;
@@ -56,20 +56,16 @@ body, .snake{
     justify-content:space-between;
 }
 #score{
-    color: #abb78a;
+    color: #d8ddca;
 }
 #score,#high_score{
-    font-size:40px;
+    font-size:30px;
     font-weight:bolder;
     margin:10px 0;
 }
 #high_score{
-    color:#d8ddca;
+    color:white;
     display: none;
-}
-
-.game-border-3,#logo{
-    background-color: #c4cfa3;
 }
 .snake{
     border:#5a5a5a 1px dotted;
@@ -81,6 +77,142 @@ body, .snake{
 #logo{
     position:absolute;
     max-width:20%;
-
+    transition: opacity 0.3s ease; 
 }
+
+/*------------------------- themes ---------------------------------*/
+#earth-icon, #venus-icon, #neptune-icon {
+    position:absolute;
+    width: 200px;
+    height: 200px;
+}
+#earth-icon{
+    margin-top: -350px;
+    margin-left: 700px;
+}
+#earth-icon:hover, #venus-icon:hover, #neptune-icon:hover{
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+#venus-icon{
+    margin-top: -150px;
+    margin-left: 550px;
+}
+#neptune-icon{
+    margin-top: 40px;
+    margin-left: 700px;
+}
+#planet-h1{
+    position:absolute;
+    margin-top: -350px;
+    margin-left: 430px;
+    font-size: 20pt;
+}
+#planet-h1:hover, #planet-text:hover{
+    color:white;
+}
+#planet-text{
+    position:absolute;
+    margin-top: -300px;
+    margin-left: 350px;
+    font-size: 8pt;
+}
+/*DYNAMIC BACKGROUND CHANGES*/
+body.earth {
+    background-color: #07d9d8; /* Example: Earth theme might have a green background */
+}
+
+body.venus {
+    background-color: #dc5e40; /* Example: Venus theme might have a red background */
+}
+
+body.neptune {
+    background-color: #968cde; /* Example: Neptune theme might have a blue background */
+}
+.game-border-one.earth{
+    border: #5c3e36 solid 10px;
+    border-radius:30px;
+    box-shadow:inset 0 0 0 10px #5c3e36; /*box shadow goes insward -- gets rid of gap*/
+}
+.game-border-two.earth{
+    border:#ABB78A solid 8px;
+    border-radius:26px;
+    box-shadow:inset 0 0 0 10px #ABB78A; /*box shadow goes insward -- gets rid of gap*/
+}
+.game-border-three.earth{
+    border:#8b966c solid 30px;
+    border-radius:20px;
+    box-shadow:inset 0 0 0 5px #8b966c; /*box shadow goes insward -- gets rid of gap*/
+}
+.game-border-one.venus{
+    border:red solid 10px;
+    border-radius:30px;
+    box-shadow:inset 0 0 0 10px red; /*box shadow goes insward -- gets rid of gap*/
+}
+.game-border-two.venus{
+    border:#de9264 solid 8px;
+    border-radius:26px;
+    box-shadow:inset 0 0 0 10px #de9264; /*box shadow goes insward -- gets rid of gap*/
+}
+.game-border-three.venus{
+    border:#dba091 solid 30px;
+    border-radius:20px;
+    box-shadow:inset 0 0 0 5px #dba091; /*box shadow goes insward -- gets rid of gap*/
+}
+.game-border-one.neptune{
+    border:#667ed8 solid 10px;
+    border-radius:30px;
+    box-shadow:inset 0 0 0 10px #667ed8; /*box shadow goes insward -- gets rid of gap*/
+}
+.game-border-two.neptune{
+    border:#b8bfd8 solid 8px;
+    border-radius:26px;
+    box-shadow:inset 0 0 0 10px #b8bfd8; /*box shadow goes insward -- gets rid of gap*/
+}
+.game-border-three.neptune{
+    border:#bea4de solid 30px;
+    border-radius:20px;
+    box-shadow:inset 0 0 0 5px #bea4de; /*box shadow goes insward -- gets rid of gap*/
+}
+.earth{
+    background-color: #FFFDE0;
+}
+.venus{
+    background-color: #FFF0F8;
+}
+.neptune{
+    background-color: #F8F0FF;
+    
+}
+
+
+/*LOGO appear/disappear */
+#logo-corner {
+    position: absolute;  
+    max-width:14%;
+    top: 15px;           
+    left: 15px;        
+    display: none; /* initially hidden */
+    transition: opacity 0.3s ease; 
+}
+
+
+
+
+
+
 

@@ -106,6 +106,7 @@ function startSnakeGame(){
     gameStart = true; //kep track of running game
     instructiontxt.style.display = 'none';
     logo.style.display = 'none';
+    document.getElementById('logo-corner').style.display = 'block';
     gameInterval = setInterval(()=>{
         move();
         checkBumps();
@@ -167,6 +168,7 @@ function resetGame(){
     food = genRandFood();
     direction = 'right';
     gameSpeedDelay = 200;
+    document.getElementById('logo-corner').style.display = 'none';  //hide the logo
     updateScore();
 }
 
@@ -189,6 +191,27 @@ function updateHighScore(){
     highScoretxt.style.display = 'block';
 
 }
+
+//--------------------------THEMES ----------------------------------
+
+function changeTheme(theme) {
+    // First, remove all theme-related classes to ensure no conflicting styles are applied.
+    document.body.classList.remove('earth', 'venus', 'neptune');
+    document.body.classList.add(theme);
+    gameboard.classList.remove('earth', 'venus','neptune');
+    gameboard.classList.add(theme);
+
+    const borders = document.querySelectorAll('.game-border-one, .game-border-two, .game-border-three');
+    borders.forEach(border => {
+        border.classList.remove('earth', 'venus', 'neptune');
+        border.classList.add(theme);
+    });
+}
+
+document.getElementById('earth-icon').addEventListener('click', () => changeTheme('earth'));
+document.getElementById('venus-icon').addEventListener('click', () => changeTheme('venus'));
+document.getElementById('neptune-icon').addEventListener('click', () => changeTheme('neptune'));
+
 //test moving
 // setInterval(()=>{
 //     move(); //move first
