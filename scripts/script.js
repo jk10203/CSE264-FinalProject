@@ -118,9 +118,11 @@ function move(){
         snake.pop();
     }
 }
+
 //start game
 function startSnakeGame(){
     gameStart = true; //kep track of running game
+    adjustDifficulty();
     const start_sound= document.getElementById('startSound');
     start_sound.play();
     instructiontxt.style.display = 'none';
@@ -137,24 +139,48 @@ function startSnakeGame(){
 function handleKeyPress(event){
     if((!gameStart && event.code === 'Space') || (!gameStart && event.key === ' ') ){
         startSnakeGame();
+        event.preventDefault();  //prevent the default space key action
     } else {
         switch(event.key){
             case 'ArrowUp': 
+                event.preventDefault();//so the arrows do not affect the toggle menu
                 direction = 'up';
                 break;
             case 'ArrowDown': 
+                event.preventDefault();
                 direction = 'down';
                 break;
             case 'ArrowLeft': 
+                event.preventDefault();
                 direction = 'left';
                 break;
-            case 'ArrowRight': 
+            case 'ArrowRight':
+                event.preventDefault(); 
                 direction = 'right';
                 break;    
         }
     }
 }
 document.addEventListener('keydown', handleKeyPress);
+
+//difficulty 
+document.getElementById('diff').addEventListener('change', () => adjustDifficulty()); 
+
+//adjusting difficulty based on snake's speed
+function adjustDifficulty() {
+    const difficulty = document.getElementById('diff').value;
+    switch (difficulty) {
+        case 'easy':
+            gameSpeedDelay = 240;
+            break;
+        case 'normal':
+            gameSpeedDelay = 180;
+            break;
+        case 'hard':
+            gameSpeedDelay = 130;
+            break;
+    }
+}
 
 function increaseSpeed(){
     if(gameSpeedDelay>150){
@@ -167,7 +193,7 @@ function increaseSpeed(){
         gameSpeedDelay-=1;
     }
 }
-
+//checking rules of game (cannot bump into snake or walls)
 function checkBumps(){
     const head = snake[0]; //the head
     if(head.x<1 || head.x>gridSize || head.y <1 ||head.y>gridSize){
@@ -377,6 +403,7 @@ function changeTheme(theme) {
     image11.style.display = 'block';
 }
 
+//event listeners for theme changes
 document.getElementById('earth-icon').addEventListener('click', () => changeTheme('earth'));
 document.getElementById('venus-icon').addEventListener('click', () => changeTheme('venus'));
 document.getElementById('neptune-icon').addEventListener('click', () => changeTheme('neptune'));

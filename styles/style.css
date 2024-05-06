@@ -519,6 +519,23 @@ body.neptune {
     transition: opacity 0.3s ease; 
 }
 
+/*---------------BUTTON -------------------*/
+#buttons{
+    font-size:12px;
+}
+#diff {
+    font-family:'pixelcowboy';
+    background-color: #333;
+    color:white;
+    font-size:10px;
+    padding: 6px 6px;
+
+}
+.diff:hover {
+    background-color: #0056b3; /*darker shade on hover */
+    border-color: #0056b3;
+}
+
 
 
 
