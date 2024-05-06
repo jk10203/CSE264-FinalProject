@@ -195,6 +195,12 @@ function updateHighScore(){
 //--------------------------THEMES ----------------------------------
 
 function changeTheme(theme) {
+    const themeDescriptions = {
+        earth: "⊹ YOU ARE @ EARTH ⊹",
+        venus: "⊹ YOU ARE @ VENUS ⊹",
+        neptune: "⊹ YOU ARE @ NEPTUNE ⊹"
+    };
+    
     // First, remove all theme-related classes to ensure no conflicting styles are applied.
     document.body.classList.remove('earth', 'venus', 'neptune');
     document.body.classList.add(theme);
@@ -206,6 +212,8 @@ function changeTheme(theme) {
         border.classList.remove('earth', 'venus', 'neptune');
         border.classList.add(theme);
     });
+    const descriptionElement = document.getElementById('theme-description');
+    descriptionElement.textContent = themeDescriptions[theme];
 
     const image1 = document.getElementById('theme-image-1');
     const image2 = document.getElementById('theme-image-2');
@@ -214,6 +222,9 @@ function changeTheme(theme) {
     const image5 = document.getElementById('theme-image-5');
     const image6 = document.getElementById('theme-image-6');
     const image7 = document.getElementById('theme-image-7');
+    const image8 = document.getElementById('theme-image-8');
+    const image9 = document.getElementById('theme-image-9');
+    const image10 = document.getElementById('theme-image-10');
 
     // Remove all theme-specific classes first
     image1.className = 'theme-image default'; // Reset to default classes
@@ -223,6 +234,9 @@ function changeTheme(theme) {
     image5.className = 'theme-image default'; // Reset to default classes
     image6.className = 'theme-image default';
     image7.className = 'theme-image default';
+    image8.className = 'theme-image default';
+    image9.className = 'theme-image default';
+    image10.className = 'theme-image default';
 
 
     switch (theme) {
@@ -234,6 +248,9 @@ function changeTheme(theme) {
             image5.src = '../styles/images/earth/green_plane.png';
             image6.src = '../styles/images/earth/clouds-1.png';
             image7.src = '../styles/images/earth/bird_flying.png';
+            image8.src = '../styles/images/earth/sun.png';
+            image9.src = '../styles/images/earth/mountain.png';
+            image10.src = '../styles/images/crosshair.png';
             image1.classList.add('earth-position-1');
             image2.classList.add('earth-position-2');
             image3.classList.add('earth-position-3');
@@ -241,6 +258,10 @@ function changeTheme(theme) {
             image5.classList.add('earth-position-5');
             image6.classList.add('earth-position-6');
             image7.classList.add('earth-position-7');
+            image8.classList.add('earth-position-8');
+            image9.classList.add('earth-position-9');
+            image10.classList.add('earth-position-10');
+
             break;
         case 'venus':
             image1.src = '../styles/images/venus/volcano.png';
@@ -248,8 +269,11 @@ function changeTheme(theme) {
             image3.src = '../styles/images/venus/smoke-2.png';
             image4.src = '../styles/images/venus/smoke-3.png';
             image5.src = '../styles/images/venus/smoke-4.png';
-            image6.src = '../styles/images/venus/smoke-4.png';
-            image7.src = '../styles/images/venus/smoke-4.png';
+            image6.src = '../styles/images/venus/asteroid-fire.png';
+            image7.src = '../styles/images/venus/lava-fall.png';
+            image8.src = '../styles/images/venus/fire-ball.png';
+            image9.src = '../styles/images/venus/dragon1.png';
+            image10.src = '../styles/images/crosshair.png';
             image1.classList.add('venus-position-1');
             image2.classList.add('venus-position-2');
             image3.classList.add('venus-position-3');
@@ -257,18 +281,31 @@ function changeTheme(theme) {
             image5.classList.add('venus-position-5');
             image6.classList.add('venus-position-6');
             image7.classList.add('venus-position-7');
+            image8.classList.add('venus-position-8');
+            image9.classList.add('venus-position-9');
+            image10.classList.add('venus-position-10');
             break;
         case 'neptune':
             image1.src = '../styles/images/neptune/cloud-wind-1.png';
             image2.src = '../styles/images/neptune/crystals-1.png';
-            image3.src = '../styles/images/neptune/cloud-wind-1.png';
-            image4.src = '../styles/images/neptune/crystals-1.png';
-            image5.src = '../styles/images/neptune/cloud-wind-1.png';
+            image3.src = '../styles/images/neptune/snow1.png';
+            image4.src = '../styles/images/neptune/snow2.png';
+            image5.src = '../styles/images/neptune/snow1.png';
+            image6.src = '../styles/images/neptune/snowmountain1.png';
+            image7.src = '../styles/images/neptune/snowmountain2.png';
+            image8.src = '../styles/images/neptune/sparklegif.gif';
+            image9.src = '../styles/images/neptune/cloud-wind-1.png';
+            image10.src = '../styles/images/crosshair.png';
             image1.classList.add('neptune-position-1');
             image2.classList.add('neptune-position-2');
             image3.classList.add('neptune-position-3');
             image4.classList.add('neptune-position-4');
             image5.classList.add('neptune-position-5');
+            image6.classList.add('neptune-position-6');
+            image7.classList.add('neptune-position-7');
+            image8.classList.add('neptune-position-8');
+            image9.classList.add('neptune-position-9');
+            image10.classList.add('neptune-position-10');
             break;
     }
 
@@ -280,6 +317,9 @@ function changeTheme(theme) {
     image5.style.display = 'block';
     image6.style.display = 'block';
     image7.style.display = 'block';
+    image8.style.display = 'block';
+    image9.style.display = 'block';
+    image10.style.display = 'block';
 }
 
 document.getElementById('earth-icon').addEventListener('click', () => changeTheme('earth'));
@@ -287,7 +327,7 @@ document.getElementById('venus-icon').addEventListener('click', () => changeThem
 document.getElementById('neptune-icon').addEventListener('click', () => changeTheme('neptune'));
 
 document.addEventListener('DOMContentLoaded', function() {
-    changeTheme('venus');
+    changeTheme('earth');
 });
 //test moving
 // setInterval(()=>{

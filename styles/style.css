@@ -79,6 +79,24 @@ body, .snake{
     max-width:20%;
     transition: opacity 0.3s ease; 
 }
+.snake {
+    transition: transform 0.2s linear; /* Adjust timing to match your game speed */
+}
+@keyframes blinkColor {
+    0%, 100% {
+        color: white;
+    }
+    50% {
+        color: gold;
+    }
+}
+#theme-description{
+    position:absolute;
+    font-size: 10pt;
+    margin-top: -270px;
+    margin-left:400px;
+    animation: blinkColor 1s linear infinite;
+}
 
 /*------------------------- themes ---------------------------------*/
 #earth-icon, #venus-icon, #neptune-icon {
@@ -107,7 +125,7 @@ body, .snake{
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
-  }
+}
 #venus-icon{
     margin-top: -150px;
     margin-left: 550px;
@@ -208,15 +226,25 @@ body.neptune {
     display: block;
     max-width: 20%;
     position:absolute;
-    top: 50px;
-    left: 50px;
+    z-index:3;
+    top: 90px;
+    left: 80px;
 }
+@keyframes MoveUpDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+  }
 .earth-position-2 {/*hotairballoon*/
     display: block;
     max-width: 20%;
     position:absolute;
-    top: 350px;
+    top: 356px;
     left: 10px;
+    animation: MoveUpDown 3s linear infinite;
 }
 .earth-position-3 {/*hotairballoon2*/
     display: block;
@@ -224,20 +252,25 @@ body.neptune {
     position:absolute;
     top: 400px;
     left: 900px;
+    animation: MoveUpDown 3s linear infinite;
 }
 .earth-position-4 {/*cloud2*/
     display: block;
     max-width: 23%;
     position:absolute;
-    top: 180px;
+    top: 220px;
     left: 170px;
 }
 .earth-position-5 {/*plane*/
     display: block;
-    max-width: 17%;
+    max-width: 14%;
     position:absolute;
-    top: -20px;
-    left: 550px;
+    top: 90px;
+    left: 320px;
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+
+
 }
 .earth-position-6 { /*cloud*/
     display: block;
@@ -252,6 +285,7 @@ body.neptune {
     position:absolute;
     top: 600px;
     left: 1200px;
+    z-index:3;
     animation: moveBird 10s linear infinite;
 }
 @keyframes moveBird {
@@ -261,6 +295,28 @@ body.neptune {
     to {
         left: -20%; /* End a bit outside of the left edge to ensure it's fully off screen */
     }
+}
+.earth-position-8 { /*cloud*/
+    display: block;
+    max-width: 16%;
+    position:absolute;
+    top: -15px;
+    left:-15px;
+}
+.earth-position-9 { /*mtn*/
+    display: block;
+    max-width: 40%;
+    position:absolute;
+    top: 610px;
+    left:0px;
+}
+.earth-position-10 { /*sparkle*/
+    display: none;
+    position:absolute;
+    max-width: 10%;
+    top: 110px;
+    left: 1130px;
+    animation:blinkImage 1s linear infinite;
 }
 
 .venus-position-1 { /*volcano*/
@@ -278,7 +334,7 @@ body.neptune {
 .venus-position-3 { /*smoke2*/
     display: none;
     max-width: 10%;
-    top: 80px;
+    top: 110px;
     left: 900px;
 }
 .venus-position-4 { /*smoke3*/
@@ -289,40 +345,146 @@ body.neptune {
 }
 .venus-position-5 { /*smoke4*/
     display: none;
-    max-width: 16%;
-    top: 480px;
-    left: 300px;
+    max-width: 20%;
+    top: 500px;
+    left: 900px;
 }
-.venus-position-6 { /*smoke4*/
+.venus-position-6 { /*asteroid*/
     display: none;
-    max-width: 16%;
-    top: 480px;
-    left: 300px;
+    max-width: 10%;
+    top: 220px;
+    left: 1250px;
+    animation: moveAsteroid 6s linear infinite;
 }
-.venus-position-7 { /*smoke4*/
-    display: none;
-    max-width: 16%;
-    top: 180px;
-    left: 300px;
+@keyframes moveAsteroid {
+    0% {
+        top: initialPositionTop; /*start from the initial top position */
+        left: initialPositionLeft; /*start from the initial left position */
+    }
+    100% {
+        top: 80%; /*end at the bottom of the viewport */
+        left: 50%; /*end at the left edge of the viewport */
+    }
 }
 
-.neptune-position-1 {
+.venus-position-7 { /*lava fall*/
     display: none;
-    top: 250px;
+    max-width: 50%;
+    top: -120px;
+    left: 250px;
+}
+.venus-position-8 { /*fireball*/
+    display: none;
+    max-width: 8%;
+    top: 350px;
+    left: 80px;
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+.venus-position-9 { /*firedog*/
+    display: none;
+    max-width: 20%;
+    top: 300px;
+    left: 200px;
+}
+.venus-position-10 { /*sparkle*/
+    display: none;
+    position:absolute;
+    max-width: 10%;
+    top: 210px;
+    left: 990px;
+    animation:blinkImage 1s linear infinite;
+}
+
+.neptune-position-1 { /*wind*/
+    display: none;
+    max-width: 25%;
+    top: -40px;
+    left: -40px;
+}
+.neptune-position-2 {/**/
+    display: none;
+    max-width: 15%;
+    top: 400px;
+    left: -10px;
+}
+.neptune-position-3 {
+    display: none;
+    max-width: 8%;
+    top: 150px;
+    left: 200px;
+}
+.neptune-position-4 {
+    display: none;
+    max-width: 9%;
+    top: 220px;
     left: 300px;
 }
-.neptune-position-2 {
+.neptune-position-5 {
     display: none;
-    top: 250px;
+    max-width: 10%;
+    top: 0px;
     left: 300px;
 }
+.neptune-position-6 {
+    display: none;
+    max-width: 40%;
+    top: 620px;
+    left: 200px;
+}
+.neptune-position-7 {
+    display: none;
+    max-width: 35%;
+    top: 620px;
+    left: 700px;
+}
+.neptune-position-8 { /*sparkle*/
+    display: none;
+    max-width: 15%;
+    top: 340px;
+    left: 30px;
+}
+.neptune-position-9 {
+    display: none;
+    max-width: 12%;
+    z-index:3;
+    top: 570px;
+    left: 1000px;
+    animation:moveCloud 20s linear infinite;
+}
+@keyframes moveCloud {
+    0%, 100% {
+        left: 0%;  /*syarting and ending at the left side */
+    }
+    50% {
+        left: 90%; /*move towards the right, adjust based on your layout */
+    }
+}
+.neptune-position-10 { /*sparkle*/
+    display: none;
+    position:absolute;
+    max-width: 10%;
+    top: 400px;
+    left: 1200px;
+    animation:blinkImage 1s linear infinite;
+}
+
+@keyframes blinkImage {
+    0%, 100% {
+        opacity: 0; /*image is invisible */
+    }
+    50% {
+        opacity: 1; /*image is visible */
+    }
+}
+
 
 /*LOGO appear/disappear */
 #logo-corner {
     position: absolute;  
-    max-width:14%;
-    top: 15px;           
-    left: 15px;        
+    max-width:12%;
+    top: -10px;           
+    left: 615px;        
     display: none; /* initially hidden */
     transition: opacity 0.3s ease; 
 }
