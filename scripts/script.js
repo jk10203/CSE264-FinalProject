@@ -214,11 +214,14 @@ function showGameOverScreen() {
 //--------------------------THEMES ----------------------------------
 
 function changeTheme(theme) {
+    const blastoff= document.getElementById('spaceship');
+    blastoff.play();
+
     currentTheme = theme;
     const themeDescriptions = {
-        earth: "⊹ YOU ARE @ EARTH ⊹",
-        venus: "⊹ YOU ARE @ VENUS ⊹",
-        neptune: "⊹ YOU ARE @ NEPTUNE ⊹"
+        earth: "⊹ YOU ARE ON EARTH ⊹",
+        venus: "⊹ YOU ARE ON VENUS ⊹",
+        neptune: "⊹ YOU ARE ON NEPTUNE ⊹"
     };
     
     // First, remove all theme-related classes to ensure no conflicting styles are applied.
@@ -260,6 +263,7 @@ function changeTheme(theme) {
     const image8 = document.getElementById('theme-image-8');
     const image9 = document.getElementById('theme-image-9');
     const image10 = document.getElementById('theme-image-10');
+    const image11 = document.getElementById('theme-image-11');
 
     // Remove all theme-specific classes first
     image1.className = 'theme-image default'; // Reset to default classes
@@ -272,6 +276,8 @@ function changeTheme(theme) {
     image8.className = 'theme-image default';
     image9.className = 'theme-image default';
     image10.className = 'theme-image default';
+    image11.className = 'theme-image default';
+
 
 
     switch (theme) {
@@ -286,6 +292,8 @@ function changeTheme(theme) {
             image8.src = '../styles/images/earth/sun.png';
             image9.src = '../styles/images/earth/mountain.png';
             image10.src = '../styles/images/crosshair.png';
+            image11.src = '';
+
             image1.classList.add('earth-position-1');
             image2.classList.add('earth-position-2');
             image3.classList.add('earth-position-3');
@@ -296,7 +304,6 @@ function changeTheme(theme) {
             image8.classList.add('earth-position-8');
             image9.classList.add('earth-position-9');
             image10.classList.add('earth-position-10');
-
             break;
         case 'venus':
             image1.src = '../styles/images/venus/volcano.png';
@@ -309,6 +316,7 @@ function changeTheme(theme) {
             image8.src = '../styles/images/venus/fire-ball.png';
             image9.src = '../styles/images/venus/dragon1.png';
             image10.src = '../styles/images/crosshair.png';
+            image11.src = '';
             image1.classList.add('venus-position-1');
             image2.classList.add('venus-position-2');
             image3.classList.add('venus-position-3');
@@ -331,6 +339,7 @@ function changeTheme(theme) {
             image8.src = '../styles/images/neptune/sparklegif.gif';
             image9.src = '../styles/images/neptune/cloud-wind-1.png';
             image10.src = '../styles/images/crosshair.png';
+            image11.src = '../styles/images//neptune/yeti.png';
             image1.classList.add('neptune-position-1');
             image2.classList.add('neptune-position-2');
             image3.classList.add('neptune-position-3');
@@ -341,6 +350,7 @@ function changeTheme(theme) {
             image8.classList.add('neptune-position-8');
             image9.classList.add('neptune-position-9');
             image10.classList.add('neptune-position-10');
+            image11.classList.add('neptune-position-11');
             break;
     }
 
@@ -355,6 +365,7 @@ function changeTheme(theme) {
     image8.style.display = 'block';
     image9.style.display = 'block';
     image10.style.display = 'block';
+    image11.style.display = 'block';
 }
 
 document.getElementById('earth-icon').addEventListener('click', () => changeTheme('earth'));

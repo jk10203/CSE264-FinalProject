@@ -306,7 +306,7 @@ body.neptune {
     display: block;
     max-width: 40%;
     position:absolute;
-    top: 610px;
+    top: 595px;
     left:0px;
 }
 .earth-position-10 { /*sparkle*/
@@ -321,7 +321,7 @@ body.neptune {
 .venus-position-1 { /*volcano*/
     display: none;
     max-width: 20%;
-    top: 480px;
+    top: 470px;
     left: 0px;
 }
 .venus-position-2 { /*smoke1*/
@@ -345,7 +345,7 @@ body.neptune {
 .venus-position-5 { /*smoke4*/
     display: none;
     max-width: 20%;
-    top: 500px;
+    top: 490px;
     left: 900px;
 }
 .venus-position-6 { /*asteroid*/
@@ -475,6 +475,13 @@ body.neptune {
     50% {
         opacity: 1; /*image is visible */
     }
+}
+.neptune-position-11 { /*sparkle*/
+    display: none;
+    max-width: 11%;
+    top: 500px;
+    left: 910px;
+    animation: MoveUpDown 1s linear infinite;
 }
 
 /*----------------SNAKE DYANMIC -----------------*/
