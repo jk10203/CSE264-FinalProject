@@ -35,7 +35,7 @@ function draw(){
     drawSnake();
     drawFood();
     updateScore();
-    
+
     //starts playing music when game first starts
     var bgMusic = document.getElementById('bgmusic');
     bgMusic.loop = true; //kooping the background music
@@ -186,6 +186,7 @@ function adjustDifficulty() {
     }
 }
 
+//increasing speed more you eat
 function increaseSpeed(){
     if(gameSpeedDelay>150){
         gameSpeedDelay-=5;
