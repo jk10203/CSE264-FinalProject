@@ -206,12 +206,85 @@ function changeTheme(theme) {
         border.classList.remove('earth', 'venus', 'neptune');
         border.classList.add(theme);
     });
+
+    const image1 = document.getElementById('theme-image-1');
+    const image2 = document.getElementById('theme-image-2');
+    const image3 = document.getElementById('theme-image-3');
+    const image4 = document.getElementById('theme-image-4');
+    const image5 = document.getElementById('theme-image-5');
+    const image6 = document.getElementById('theme-image-6');
+    const image7 = document.getElementById('theme-image-7');
+
+    // Remove all theme-specific classes first
+    image1.className = 'theme-image default'; // Reset to default classes
+    image2.className = 'theme-image default'; // Reset to default classes
+    image3.className = 'theme-image default'; // Reset to default classes
+    image4.className = 'theme-image default'; 
+    image5.className = 'theme-image default'; // Reset to default classes
+    image6.className = 'theme-image default';
+    image7.className = 'theme-image default';
+
+
+    switch (theme) {
+        case 'earth':
+            image1.src = '../styles/images/earth/clouds-1.png';
+            image2.src = '../styles/images/earth/hotairballoon-1.png';
+            image3.src = '../styles/images/earth/hotairballoon-2.png';
+            image4.src = '../styles/images/earth/clouds-2.png';
+            image5.src = '../styles/images/earth/green_plane.png';
+            image6.src = '../styles/images/earth/clouds-1.png';
+            image7.src = '../styles/images/earth/bird_flying.png';
+            image1.classList.add('earth-position-1');
+            image2.classList.add('earth-position-2');
+            image3.classList.add('earth-position-3');
+            image4.classList.add('earth-position-4');
+            image5.classList.add('earth-position-5');
+            image6.classList.add('earth-position-6');
+            image7.classList.add('earth-position-7');
+            break;
+        case 'venus':
+            image1.src = '../styles/images/venus/volcano.png';
+            image2.src = '../styles/images/venus/smoke-1.png';
+            image3.src = '../styles/images/venus/smoke-2.png';
+            image4.src = '../styles/images/venus/smoke-3.png';
+            image5.src = '../styles/images/venus/smoke-4.png';
+            image1.classList.add('venus-position-1');
+            image2.classList.add('venus-position-2');
+            image3.classList.add('venus-position-3');
+            image4.classList.add('venus-position-4');
+            image5.classList.add('venus-position-5');
+            break;
+        case 'neptune':
+            image1.src = '../styles/images/neptune/cloud-wind-1.png';
+            image2.src = '../styles/images/neptune/crystals-1.png';
+            image3.src = '../styles/images/neptune/cloud-wind-1.png';
+            image4.src = '../styles/images/neptune/crystals-1.png';
+            image5.src = '../styles/images/neptune/cloud-wind-1.png';
+            image1.classList.add('neptune-position-1');
+            image2.classList.add('neptune-position-2');
+            image3.classList.add('neptune-position-3');
+            image4.classList.add('neptune-position-4');
+            image5.classList.add('neptune-position-5');
+            break;
+    }
+
+    // Display images now that sources and positions are set
+    image1.style.display = 'block';
+    image2.style.display = 'block';
+    image3.style.display = 'block';
+    image4.style.display = 'block';
+    image5.style.display = 'block';
+    image6.style.display = 'block';
+    image7.style.display = 'block';
 }
 
 document.getElementById('earth-icon').addEventListener('click', () => changeTheme('earth'));
 document.getElementById('venus-icon').addEventListener('click', () => changeTheme('venus'));
 document.getElementById('neptune-icon').addEventListener('click', () => changeTheme('neptune'));
 
+document.addEventListener('DOMContentLoaded', function() {
+    changeTheme('earth');
+});
 //test moving
 // setInterval(()=>{
 //     move(); //move first

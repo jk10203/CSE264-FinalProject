@@ -198,7 +198,95 @@ body.neptune {
     background-color: #F8F0FF;
     
 }
+/*----------------THEME IMAGES----------------------*/
+.theme-image { /* Hidden by default */
+    position: absolute; /* Allows for precise positioning */
+    transition: all 0.3s ease; /* Smooth transition if needed */
+}
 
+.earth-position-1 { /*cloud*/
+    display: block;
+    max-width: 20%;
+    position:absolute;
+    top: 50px;
+    left: 50px;
+}
+.earth-position-2 {/*hotairballoon*/
+    display: block;
+    max-width: 20%;
+    position:absolute;
+    top: 350px;
+    left: 10px;
+}
+.earth-position-3 {/*hotairballoon2*/
+    display: block;
+    max-width: 11%;
+    position:absolute;
+    top: 400px;
+    left: 900px;
+}
+.earth-position-4 {/*cloud2*/
+    display: block;
+    max-width: 23%;
+    position:absolute;
+    top: 180px;
+    left: 170px;
+}
+.earth-position-5 {/*plane*/
+    display: block;
+    max-width: 17%;
+    position:absolute;
+    top: -20px;
+    left: 550px;
+}
+.earth-position-6 { /*cloud*/
+    display: block;
+    max-width: 16%;
+    position:absolute;
+    top: 630px;
+    left: 970px;
+}
+.earth-position-7 { /*bird*/
+    display: block;
+    max-width: 10%;
+    position:absolute;
+    top: 600px;
+    left: 1200px;
+    animation: moveBird 10s linear infinite;
+}
+@keyframes moveBird {
+    from {
+        left: 100%; /* Start from the right edge of the viewport */
+    }
+    to {
+        left: -20%; /* End a bit outside of the left edge to ensure it's fully off screen */
+    }
+}
+
+
+.venus-position-1 {
+    display: none;
+    max-width: 16%;
+    top: 150px;
+    left: 200px;
+}
+.venus-position-2 {
+    display: none;
+    max-width: 16%;
+    top: 150px;
+    left: 200px;
+}
+
+.neptune-position-1 {
+    display: none;
+    top: 250px;
+    left: 300px;
+}
+.neptune-position-2 {
+    display: none;
+    top: 250px;
+    left: 300px;
+}
 
 /*LOGO appear/disappear */
 #logo-corner {
