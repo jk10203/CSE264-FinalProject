@@ -74,7 +74,6 @@ function genRandFood(){
 
     return {x,y};
 }
-
 //MOVIGN SNAKE
 function move(){
     const head = {...snake[0]}; //make shallow copy!! -- dont alter original state
@@ -97,6 +96,8 @@ function move(){
     //snake.pop(); //removes last el from array
 
     if(head.x == food.x && head.y == food.y){ //if same spot
+        const eatSound = document.getElementById('eatSound');
+        eatSound.play();
         food = genRandFood();
         increaseSpeed();
         clearInterval(gameInterval); //reset movement
@@ -112,6 +113,8 @@ function move(){
 //start game
 function startSnakeGame(){
     gameStart = true; //kep track of running game
+    const start_sound= document.getElementById('startSound');
+    start_sound.play();
     instructiontxt.style.display = 'none';
     logo.style.display = 'none';
     document.getElementById('logo-corner').style.display = 'block';
@@ -171,6 +174,8 @@ function checkBumps(){
 }
 function resetGame(){
     updateHighScore();
+    const death_sound= document.getElementById('deathSound');
+    death_sound.play();
     stopGame();
     snake = [{x:10, y:10}];
     food = genRandFood();
