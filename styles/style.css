@@ -201,7 +201,7 @@ body.neptune {
 /*----------------THEME IMAGES----------------------*/
 .theme-image { /* Hidden by default */
     position: absolute; /* Allows for precise positioning */
-    transition: all 0.3s ease; /* Smooth transition if needed */
+    /* Smooth transition if needed */
 }
 
 .earth-position-1 { /*cloud*/
@@ -263,18 +263,47 @@ body.neptune {
     }
 }
 
-
-.venus-position-1 {
+.venus-position-1 { /*volcano*/
     display: none;
-    max-width: 16%;
-    top: 150px;
-    left: 200px;
+    max-width: 20%;
+    top: 480px;
+    left: 0px;
 }
-.venus-position-2 {
+.venus-position-2 { /*smoke1*/
     display: none;
     max-width: 16%;
-    top: 150px;
-    left: 200px;
+    top: 530px;
+    left: 300px;
+}
+.venus-position-3 { /*smoke2*/
+    display: none;
+    max-width: 10%;
+    top: 80px;
+    left: 900px;
+}
+.venus-position-4 { /*smoke3*/
+    display: none;
+    max-width: 16%;
+    top: 10px;
+    left: 00px;
+}
+.venus-position-5 { /*smoke4*/
+    display: none;
+    max-width: 16%;
+    top: 480px;
+    left: 300px;
+}
+.venus-position-6 { /*smoke4*/
+    display: none;
+    max-width: 16%;
+    top: 480px;
+    left: 300px;
+}
+.venus-position-7 { /*smoke4*/
+    display: none;
+    max-width: 16%;
+    top: 180px;
+    left: 300px;
 }
 
 .neptune-position-1 {
