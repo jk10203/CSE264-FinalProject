@@ -23,15 +23,11 @@ let currentTheme = 'earth'; //default theme
 
 document.addEventListener('DOMContentLoaded', () => {
     changeTheme(currentTheme); // Set the initial theme
-});
-//changing music volume
-document.addEventListener('DOMContentLoaded', function() {
     var bgMusic = document.getElementById('bgmusic');
     bgMusic.loop = true; //kooping the background music
     bgMusic.volume = 0.25; //set volume to 25% of the maximum volume
     bgmusic.play();
 });
-
 
 //first DRAW MAP BEFORE GAME -- game map, snake, food
 function draw(){
@@ -39,6 +35,12 @@ function draw(){
     drawSnake();
     drawFood();
     updateScore();
+    
+    //starts playing music when game first starts
+    var bgMusic = document.getElementById('bgmusic');
+    bgMusic.loop = true; //kooping the background music
+    bgMusic.volume = 0.25; //set volume to 25% of the maximum volume
+    bgmusic.play();
 }
 //drawing snake -- using array of objects inside of it
 function drawSnake(){
@@ -168,6 +170,8 @@ document.getElementById('diff').addEventListener('change', () => adjustDifficult
 
 //adjusting difficulty based on snake's speed
 function adjustDifficulty() {
+    const blastoff= document.getElementById('spaceship');
+    blastoff.play();
     const difficulty = document.getElementById('diff').value;
     switch (difficulty) {
         case 'easy':
